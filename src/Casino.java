@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Casino {
 
     private final Kartenstapel kartenstapel;
-    private final Kartenhand spielerHand;
-    private final Kartenhand geberHand;
+    private Kartenhand spielerHand;
+    private Kartenhand geberHand;
     private final Scanner scanner;
 
     public Casino() {
@@ -19,6 +19,15 @@ public class Casino {
         startSpielerInteraction();
         startGeberInteraction();
         printResult();
+        if(playerWillAgain()){
+            starteSpiel();
+        }
+    }
+
+    private boolean playerWillAgain() {
+        System.out.println("Noch ein Spiel? (y/n)");
+        final String input = scanner.next();
+        return input.equals("y");
     }
 
     private void printResult() {
@@ -93,6 +102,8 @@ public class Casino {
     }
 
     private void initializeGame() {
+        spielerHand = new Kartenhand();
+        geberHand = new Kartenhand();
         spielerHand.addSpielkarte(kartenstapel.getFirstSpielkarte());
         spielerHand.addSpielkarte(kartenstapel.getFirstSpielkarte());
         geberHand.addSpielkarte(kartenstapel.getFirstSpielkarte());

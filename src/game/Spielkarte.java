@@ -1,3 +1,5 @@
+package game;
+
 public class Spielkarte {
 
     private Farbe farbe;

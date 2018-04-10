@@ -22,6 +22,7 @@ public class Casino {
         if(playerWillAgain()){
             starteSpiel();
         }
+        printEnd();
     }
 
     private boolean playerWillAgain() {
@@ -111,6 +112,10 @@ public class Casino {
 
     private void printBreakMessage(final String message){
         System.out.println(String.format("----- %s -----", message));
+    }
+
+    private void printEnd(){
+        System.out.println("Vielen Dank für deinen Besuch! Bis zum nächsten Mal :)")
     }
 
 }
